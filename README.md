@@ -44,4 +44,3 @@ List of available string items and what they will return:
     H: 24-hour format of an hour with leading zeros - 00 to 23
     i: Minutes with leading zeros - 00 to 59
     s: Seconds, with leading zeros - 0 to 59
-
