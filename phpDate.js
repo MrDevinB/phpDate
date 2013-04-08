@@ -33,7 +33,7 @@ function phpDate(str, dt) {
             w: function() { /* Numeric representation of the day of the week - 0 (for Sunday) through 6 (for Saturday) */
                 return dt.getDay();
             },
-            z: function() {
+            z: function() { /* The day of the year (starting from 0) */
                 var B = dt.getMonth() - 1,
                     C = (B > 0) ? _M.c[B] : 0;
                 C += dt.getDate();
@@ -46,16 +46,16 @@ function phpDate(str, dt) {
             m: function() { /* Numeric representation of a month, with leading zeros - 01 through 12 */
                 return ('0' + (dt.getMonth() + 1).toString()).slice(-2);
             },
-            M: function() {
+            M: function() { /* A short textual representation of a month, three letters */
                 return _M.s[dt.getMonth()];
             },
-            n: function() {
+            n: function() { /* Numeric representation of a month, without leading zeros */
                 return dt.getMonth() + 1;
             },
-            t: function() {
+            t: function() { /* Number of days in the given month */
                 return (dt.getMonth() == 1 && ly) ? '29' : _M.l[dt.getMonth()];
             },
-            L: function() {
+            L: function() { /* Whether it's a leap year - True of False */
                 return ly;
             },
             Y: function() { /* A full numeric representation of a year, 4 digits - Examples: 1999 or 2003 */
@@ -64,35 +64,31 @@ function phpDate(str, dt) {
             y: function() { /* A two digit representation of a year - Examples: 99 or 03 */
                 return dt.getFullYear().toString().substring(2, 4);
             },
-            a: function() {
+            a: function() { /* Lowercase am or pm */
                 return (dt.getHours() >= 11) ? 'pm' : 'am';
             },
-            A: function() {
+            A: function() { /* Uppercase AM or PM */
                 return (dt.getHours() >= 11) ? 'PM' : 'AM';
             },
-            g: function() {
+            g: function() { /* 12-hour format of an hour without leading zeros - 1 to 12 */
                 var A = dt.getHours();
                 return (A > 12) ? A - 12 : (A == 0) ? 12 : A;
             },
-            G: function() {
+            G: function() { /* 24-hour format of an hour without leading zeros - 0 to 23 */
                 return dt.getHours();
             },
-            h: function() {
+            h: function() { /* 12-hour format of an hour with leading zeros - 01 to 12 */
                 var A = dt.getHours();
                 return ('0' + ((A > 12) ? A - 12 : (A == 0) ? 12 : A).toString()).slice(-2);
             },
-            H: function() {
+            H: function() { /* 24-hour format of an hour with leading zeros - 00 to 23 */
                 return ('0' + (dt.getHours()).toString()).slice(-2);
             },
-            i: function() {
+            i: function() { /* Minutes with leading zeros - 00 to 59 */
                 return ('0' + (dt.getMinutes()).toString()).slice(-2);
             },
-            s: function() {
+            s: function() { /* Seconds, with leading zeros - 0 to 59 */
                 return ('0' + (dt.getSeconds()).toString()).slice(-2);
-            },
-            e: function() {
-                log(dt.toString().match(/((\(?)([\w])(\)?))/g));
-                return dt.toString().match(/(\(([\w]?)+\))/g);
             }
         };
 
