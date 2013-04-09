@@ -10,8 +10,9 @@ By default, with function will return the Date in the following format.
 	2013-04-08 12:35:12
 
 Function takes in two optional variables:
-	str: String format for date. i.e. 'Y-m-d H:i:s'
-	dt: Either date object or string
+
+		str: String format for date. i.e. 'Y-m-d H:i:s'
+		dt: Either date object or string
 
 For more info about date object:
 	http://www.w3schools.com/jsref/jsref_obj_date.asp
