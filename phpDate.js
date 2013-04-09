@@ -2,7 +2,7 @@ function phpDate(str, dt) {
 
     var out = '',
         A = new Date(),
-        dt = (typeof dt == 'undefined') ? A : dt,
+        dt = (typeof dt == 'undefined') ? A : (typeof dt == 'object')? dt : new Date( Date.parse(dt) ),
         str = (typeof str != 'undefined' && str != '') ? str : 'Y-m-d H:i:s',
         a = str.split(''),
         c = dt.getFullYear() / 4,
@@ -91,6 +91,9 @@ function phpDate(str, dt) {
                 return ('0' + (dt.getSeconds()).toString()).slice(-2);
             }
         };
+
+    if( dt == 'Invalid Date')
+      return dt;
 
     for (i = 0; i < a.length; i++)
         out += (typeof d[a[i]] == 'function') ? d[a[i]]() : a[i];
